@@ -8,7 +8,7 @@
 
         <variable
             name="model"
-            type="captain.wonjong.fontchecker.TextModel" />
+            type="captain.wonjong.fontchecker.model.TextModel" />
     </data>
 
     <RelativeLayout
@@ -48,13 +48,22 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btn_setting_text_font"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="폰트변경"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <Button
                 android:id="@+id/btn_setting_bg"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:text="BG색"
                 android:textColor="#000"
-                android:textSize="18dp" />
+                android:textSize="15dp" />
 
             <Button
                 android:id="@+id/btn_setting_text_color"
@@ -63,7 +72,7 @@
                 android:layout_weight="1"
                 android:text="Text색"
                 android:textColor="#000"
-                android:textSize="18dp" />
+                android:textSize="15dp" />
 
             <Button
                 android:id="@+id/btn_setting_text_size"
@@ -72,7 +81,7 @@
                 android:layout_weight="1"
                 android:text="Text크기"
                 android:textColor="#000"
-                android:textSize="18dp" />
+                android:textSize="15dp" />
         </LinearLayout>
 
         <ScrollView

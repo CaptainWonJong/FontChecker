@@ -1,4 +1,4 @@
-package captain.wonjong.fontchecker;
+package captain.wonjong.fontchecker.model;
 
 import android.graphics.Color;
 

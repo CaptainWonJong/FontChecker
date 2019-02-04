@@ -1,19 +1,12 @@
 package captain.wonjong.fontchecker;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
-import captain.wonjong.fontchecker.databinding.ActivityMainBinding;
-
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 
-import java.util.Objects;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import captain.wonjong.fontchecker.databinding.ActivityMainBinding;
+import captain.wonjong.fontchecker.model.TextModel;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding   mBinding;
