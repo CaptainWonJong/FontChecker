@@ -17,4 +17,8 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="ChangeDialogStyle" parent="android:Theme.Translucent.NoTitleBar">
+        <item name="android:fontFamily">@font/notosans_cjk_kr_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
 </resources>
