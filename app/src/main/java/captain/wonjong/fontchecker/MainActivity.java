@@ -1,10 +1,12 @@
 package captain.wonjong.fontchecker;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.DataBindingUtil;
 import captain.wonjong.fontchecker.databinding.ActivityMainBinding;
 import captain.wonjong.fontchecker.model.TextModel;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ColorDialog           mColorDialog;
     private SizeDialog            mSizeDialog;
+    private FontDialog            mFontDialog;
 
 
     @Override
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mColorDialog = ColorDialog.getInstance();
         mSizeDialog  = SizeDialog.getInstance();
+        mFontDialog  = FontDialog.getInstance();
     }
 
     @Override
@@ -102,7 +106,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // setting Text Font
         else if (view == mBinding.btnSettingTextFont) {
-
+            mFontDialog.show(mContext, mModel.text.getValue())
+                    .onCancel(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mFontDialog.dismiss();
+                        }
+                    })
+                    .onConfirm(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mFontDialog.dismiss();
+                            Typeface typeface = ResourcesCompat.getFont(mContext, mFontDialog.getFont());
+                            mBinding.tvOutput.setTypeface(typeface);
+                        }
+                    });
         }
     }
 }
