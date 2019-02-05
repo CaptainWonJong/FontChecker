@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ActivityMainBinding   mBinding;
     private TextModel             mModel;
 
-    private ChangeDialog          mDialog;
+    private ColorDialog           mColorDialog;
+    private SizeDialog            mSizeDialog;
 
 
     @Override
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBinding.btnSettingTextSize.setOnClickListener(this);
         mBinding.btnSettingTextColor.setOnClickListener(this);
         mBinding.btnSettingTextFont.setOnClickListener(this);
+
+        mColorDialog = ColorDialog.getInstance();
+        mSizeDialog  = SizeDialog.getInstance();
     }
 
     @Override
@@ -43,16 +47,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // setting Background Color
         else if (view == mBinding.btnSettingBg) {
+            mColorDialog.show(mContext)
+                    .onCancel(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mColorDialog.dismiss();
+                        }
+                    })
+                    .onConfirm(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mColorDialog.dismiss();
+                            mModel.bgColor.setValue(mColorDialog.getColor());
+                        }
+                    });
         }
 
         // setting Text Color
         else if (view == mBinding.btnSettingTextColor) {
+            mColorDialog.show(mContext)
+                    .onCancel(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mColorDialog.dismiss();
+                        }
+                    })
+                    .onConfirm(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mColorDialog.dismiss();
+                            mModel.textColor.setValue(mColorDialog.getColor());
+                        }
+                    });
 
         }
 
         // setting Text Size
         else if (view == mBinding.btnSettingTextSize) {
-
+            mSizeDialog.show(mContext)
+                    .onCancel(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mSizeDialog.dismiss();
+                        }
+                    })
+                    .onConfirm(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mSizeDialog.dismiss();
+                            mModel.textSize.setValue(mSizeDialog.getSize());
+                        }
+                    });
         }
 
         // setting Text Font

@@ -21,4 +21,10 @@
         <item name="android:fontFamily">@font/notosans_cjk_kr_regular</item>
         <item name="android:includeFontPadding">false</item>
     </style>
+
+    <style name="MySeekBar" parent="Base.Widget.AppCompat.SeekBar">
+        <item name="android:maxHeight">2dp</item>
+        <item name="android:thumb">@drawable/selector_seekbar_thumb</item>
+        <item name="android:progressDrawable">@drawable/selector_seekbar_progress</item>
+    </style>
 </resources>
